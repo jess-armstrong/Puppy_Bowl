@@ -40,3 +40,24 @@
 .read-the-docs {
   color: #888;
 }
+
+img {
+  max-width: 300px;
+  max-height: 300px;
+}
+
+.all-players {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1ch;
+}
+
+.player-card {
+  border: 1px solid black;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.current-player-card {
+  align-items: center;
+}
