@@ -8,14 +8,19 @@ import SinglePuppy from "./components/SinglePuppy";
 function App() {
   return (
     <>
-      <Search />
-      <NewPuppyForm />
-      <div className="all-players">
-        <Routes>
-          <Route path="/description" element={<SinglePuppy />} />
-          <Route path="/" element={<AllPuppies />} />
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/:id" element={<SinglePuppy />} />
+        <Route
+          path="/"
+          element={
+            <>
+              <Search />
+              <NewPuppyForm />
+              <AllPuppies />
+            </>
+          }
+        />
+      </Routes>
     </>
   );
 }

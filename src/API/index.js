@@ -10,3 +10,17 @@ export async function fecthAllPuppies() {
     console.error("Could not fetch players", error);
   }
 }
+
+export async function fetchSinglePuppy(playerId) {
+  try {
+    const result = await fecthAllPuppies();
+    const puppyList = result.data.players;
+
+    const currentPuppy = puppyList.find(
+      (element) => element.id === parseInt(playerId)
+    );
+    return currentPuppy;
+  } catch (error) {
+    console.error(error);
+  }
+}

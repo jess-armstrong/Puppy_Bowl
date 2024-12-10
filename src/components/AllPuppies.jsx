@@ -20,11 +20,12 @@ const AllPuppies = () => {
 
   return (
     <>
-      {error && <p className="error">{error}</p>}
-      {console.log(puppies)}
-      {puppies.map((puppy) => {
-        return <PuppyCard key={puppy.id} puppy={puppy} />;
-      })}
+      <div className="all-players">
+        {error && <p className="error">{error}</p>}
+        {puppies.map((puppy) => {
+          return <PuppyCard key={puppy.id} puppy={puppy} />;
+        })}
+      </div>
     </>
   );
 };
