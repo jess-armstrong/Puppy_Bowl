@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { removePuppy } from "../API";
 
 const PuppyCard = ({ puppy }) => {
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ const PuppyCard = ({ puppy }) => {
       <br />
       <button
         onClick={() => {
-          console.log("delete");
+          removePuppy(puppy.id);
         }}
       >
         Delete

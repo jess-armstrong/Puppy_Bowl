@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import { fecthAllPuppies } from "../API";
 import PuppyCard from "./PuppyCard";
+import NewPuppyForm from "./NewPuppyForm";
 
 const AllPuppies = () => {
   const [puppies, setPuppies] = useState([]);
   const [error, setError] = useState(null);
+  const [search, setSearch] = useState("");
+  const [update, setUpdate] = useState("");
 
   useEffect(() => {
     async function getAllPuppies() {
@@ -16,13 +19,27 @@ const AllPuppies = () => {
       }
     }
     getAllPuppies();
-  }, []);
+  }, [update]);
+
+  const displayPuppies = search
+    ? puppies.filter((puppy) => puppy.name.toLowerCase().includes(search))
+    : puppies;
 
   return (
     <>
+      <label htmlFor="">
+        Search:{" "}
+        <input
+          type="text"
+          placeholder="Search for a puppy"
+          onChange={(e) => setSearch(e.target.value.toLowerCase())}
+        />
+      </label>
+      <NewPuppyForm />
+
       <div className="all-players">
         {error && <p className="error">{error}</p>}
-        {puppies.map((puppy) => {
+        {displayPuppies.map((puppy) => {
           return <PuppyCard key={puppy.id} puppy={puppy} />;
         })}
       </div>

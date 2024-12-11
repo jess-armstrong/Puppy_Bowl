@@ -32,6 +32,9 @@ const SinglePuppy = () => {
           </p>
           <img src={puppy.imageUrl} alt={puppy.name} />
           <br />
+          <p>
+            <em>Created on {puppy.createdAt.substring(0, 10)}</em>
+          </p>
           <button
             onClick={() => {
               navigate("/");
