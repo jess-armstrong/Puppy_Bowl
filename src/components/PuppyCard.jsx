@@ -16,13 +16,13 @@ const PuppyCard = ({ puppy }) => {
         See More Details
       </button>
       <br />
-      <button
+      {/* <button
         onClick={() => {
           removePuppy(puppy.id);
         }}
       >
         Delete
-      </button>
+      </button> */}
     </div>
   );
 };
